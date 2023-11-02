@@ -1,0 +1,55 @@
+form.fancyform
+{
+    background-color: mintcream;
+    width: 400px;
+    max-width: 50%;
+    overflow: auto;
+}
+
+
+form.fancyform div
+{
+    margin: 1em;
+}
+
+form.fancyform :is(input,select,textarea)
+{
+    display: block;
+    width: 100%;
+    border: medium solid darkslateblue;
+    border-radius: 0.25em;
+}
+form.fancyform :focus
+{
+    border-color: gold;
+    border-width: thick;
+}
+
+form.fancyform button
+{
+    background-color: darkslateblue;
+    color: white;
+    padding: 0.25em;
+
+}
+form.fancyform div:has(button)
+{
+    text-align: center;
+}
+
+form.fancyform label:has(+:is(input,select,textarea)[required])::after
+{
+    content: "*";
+    color: red;
+    font-size: smaller;
+    vertical-align: super;
+}
+form.fancyform input[type=checkbox]:not(checked) + fieldset.conditional
+{
+    display: none;
+}
+
+form.fancyform input[type=checkbox]:checked + fieldset.conditional
+{
+    display: block;
+}
